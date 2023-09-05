@@ -1,0 +1,14 @@
+total 48
+drwxr-xr-x 2 buffalo buffalo 4096 Sep  5 03:26 .
+drwxr-xr-x 6 buffalo buffalo 4096 Sep  4 18:04 ..
+-rwxr-xr-x 1 buffalo buffalo   32 Sep  4 17:54 0-hello_world
+-rwxr-xr-x 1 buffalo buffalo   28 Sep  5 02:35 1-confused_smiley
+-rwxr-xr-x 1 buffalo buffalo   28 Sep  5 02:38 2-hellofile
+-rwxr-xr-x 1 buffalo buffalo   39 Sep  5 02:44 3-twofiles
+-rwxr-xr-x 1 buffalo buffalo   29 Sep  5 02:53 4-lastlines
+-rwxr-xr-x 1 buffalo buffalo   29 Sep  5 02:55 5-firstlines
+-rwxr-xr-x 1 buffalo buffalo   40 Sep  5 03:06 6-third_line
+-rwxr-xr-x 1 buffalo buffalo   93 Sep  5 03:23 7-file
+-rw-r--r-- 1 buffalo buffalo   36 Sep  5 03:26 8-cwd_state
+-rw-r--r-- 1 buffalo buffalo 2486 Sep  4 16:54 README.md
+-rw-r--r-- 1 buffalo buffalo    0 Sep  5 03:26 ls_cwd_content

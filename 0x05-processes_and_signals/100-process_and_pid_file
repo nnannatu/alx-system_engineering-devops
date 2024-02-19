@@ -7,7 +7,8 @@
 #   Deletes the file /var/run/mycript.pid and terminates upon
 #+  receiving a SIGQUIT or SIGTERM.
 
-terminator() {
+terminator()
+{
   rm /var/run/myscript.pid
   exit
 }

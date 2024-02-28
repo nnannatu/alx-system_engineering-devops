@@ -1,0 +1,82 @@
+Link to Image: https://imgur.com/a/CgOhEDU
+
+## A server:
+
+Is a piece of computer hardware or software that provides functionality for other programs or devices.
+
+### Roles of the server:
+
+Is to share data as well as to share resources and distribute work among multiple clients.
+Performing computations for a client.
+
+Helps in finding the correct IP address requested by the user
+
+## Domain name:
+
+Is a string that identifies a realm of administrative autonomy, authority or control, often used to identify services provided through the internet, such as websites, email services and more.
+
+### Roles of Domain name:
+
+Serve to identify internet resources, such as computers, networks and services with a text-based label that is easier to memorize than the numerical addresses used in the internet protocols.
+
+Used as simple identification labels to indicate ownership or control of a resource.
+Used to establish a unique identity
+
+## DNS (Domain Name System):
+
+Is a hierarchical and distributed naming system for computers, services and other resources in the internet or other internet protocol(IP) networks, associating various information with domain names assigned to each of the associated entities.
+
+### What type of DNS record www is in www.foobar.com
+
+Www is a CNAME (canonical name) DNS record type since it also points to the same IP address as foobar.com and if the IP address changes we can only record changes in the DNS a record of foobar.com
+
+## Web server:
+
+Is computer software and underlying hardware that accepts requests via HTTP that is, the network protocol created to distribute web content or its secure variant HTTPS.
+
+### Role of the web server:
+
+- Hosts web pages
+- Makes the World Wide Web possible
+- Plays the role of a server in a client-server model by implementing one or more versions of HTTP protocol, often including the HTTPS secure variant and other features and extensions.
+- Manage client connections (accepting new ones or closing the existing ones as required)
+- Receives client requests (by reading HTTP messages); performs URL normalization, URL mapping, URL path translation
+- Executes or refuses HTTP method
+- Replies to client requests sending proper HTTP responses (requested resources or error messages)
+
+## Application server:
+
+Is a server that hosts applications, that is a software that delivers a business application through a communication protocol.
+
+### Role of the application server:
+
+Hosts web apps (computer programs running inside a web browser) allowing users in the network to run and use them, without having to install a copy on their own computers.
+
+## Database:
+
+Is an organized collection of data stored and accessed electronically.
+
+### Roles of database:
+
+- Used to hold administrative information and more specialized data such as engineering data or economic models.
+- Used to support internal operations of organizations and to underpin online interactions with customers and suppliers.
+
+## What is the server using to communicate with the computer of the user requesting the website?
+
+HTTP (HyperText Transfer Protocol) - is an application layer protocol in the internet protocol suite model for distributed, collaborative, hypermedia information systems.
+
+## Issues that Can Affect This Infrastructure:
+
+### SPOF
+
+Single Point of Failure (SPOF), is a part of the system that if it fails the whole entire system stops working.
+
+This infrastructure has no redundancy that can help in avoiding this scenario, hence any single failure in any part of the system will cause the whole system to stop.
+
+### Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+
+Downtime will occur because we only have one server and one database that is used to make the deployment and maintenance hence users will not access the website in that period.
+
+### Cannot scale if too much incoming traffic
+
+The system above cannot scale if there’s too much incoming traffic because there is no other server to share loads and the system will be overloaded.

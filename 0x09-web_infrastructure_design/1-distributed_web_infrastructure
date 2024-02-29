@@ -1,0 +1,43 @@
+Link to Image: https://imgur.com/a/u5trHma
+
+## Load Balancer:
+It is a program that acts as a reverse proxy and distributes network or application traffic across a number of servers.
+
+### Role of Load Balancer:
+- Distributes client requests or network load across multiple servers.
+- Ensures high availability and reliability by sending requests only to servers that are online
+- Provides the flexibility to add or subtract servers as demand dictates
+
+### What Distribution Algorithm the load balancer is configured with and how it works:
+
+#### Least Connections
+Before redirecting a request to a server, the Load Balancer computes which server has the least connections and then sends the request there.
+
+#### Round Robin (most common)
+Requests are distributed across the group of servers sequentially. Request 1 is directed to server 1, request 2 to server 2 and so forth.
+
+#### IP Hash
+The IP address of the client is used to determine which server the request will be directed to.
+
+### How our Load-balancer Enables an active-active or active-passive setup:
+In an active-passive configuration, the server load balancer recognizes a failed node and redirects traffic to the next available node.
+
+In an active-active configuration, the load balancer spreads out the workload’s traffic between multiple nodes.
+
+## How a database Primary-Replica (Master-Slave) cluster works:
+Master-slave replication enables data from one database server (the master) to be replicated to one or more database servers (Slaves). The master logs the updates, which the ripple through to the slaves. If the changes are made to the master and slave at the same time, it is synchronous. The difference between the Primary node and the replica node in regard to the application is that the primary node is regarded as the authoritative source and the replica node (slave) databases are synchronized to it (Master).
+
+## Issues with this infrastructure:
+### SPOF
+There is no SPOF as there are multiple servers therefore, redundancy, such that when one server fails the other server is still functional.
+
+### Security issues (no firewall, no HTTPS)
+#### Firewall:
+It is a program that monitors and filters incoming and outgoing network traffic based on an organization’s previously established security policies.
+In this system, a firewall is not present hence making the system insecure to external or internal attacks.
+
+#### HTTPS:
+A https connection requires an SSL certificate. This certificate’s job is to initiate secure sessions with the user’s browser via secure sockets layer (SSL) protocol. This secure connection cannot be established without the SSL certificate which digitally connects company information to a cryptographic key.
+
+### No monitoring
+Infrastructure monitoring is used to collect health and performance data from servers, virtual machines, containers, databases and other backend components in a tech stack. This system lacks a monitoring system and hence it can not be used to visualize, analyze and alert on metrics and understand whether an issue is impacting users.

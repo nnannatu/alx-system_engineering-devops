@@ -1,0 +1,14 @@
+Link to Image: https://imgur.com/a/W6XVg5j
+
+
+- Server: This is the main server that hosts the web application. It receives requests from the load balancer and responds to them by serving the necessary content. This server is responsible for managing the web content, as well as the application and database servers.
+
+- Load Balancer (HAproxy): The load balancer is responsible for distributing incoming requests to the web server, application server, and database server, based on predefined rules. The HAproxy is a software load balancer that can be configured in a cluster with another instance of the load balancer to ensure high availability and failover support.
+
+- Web Server: The web server is responsible for serving static content like HTML, CSS, images, and other media files. This server processes the request from the load balancer and serves the required static content.
+
+- Application Server: The application server is responsible for handling dynamic requests and business logic of the web application. It processes the request from the load balancer and generates the dynamic content required by the user.
+
+- Database Server: The database server is responsible for storing and managing the data used by the web application. It processes the database requests from the application server and responds with the appropriate data.
+
+By having each component split onto its own server, the system can handle high traffic and maintain optimal performance. The load balancer ensures that the traffic is evenly distributed across the servers, and the HAproxy cluster provides high availability and failover support in case of a server failure.

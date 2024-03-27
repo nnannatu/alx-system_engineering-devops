@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#  creates an RSA key pair.
-ssh-keygen -f school -b 4096 -N betty
+# Connects to server 52.7.252.237 with key in ~/.ssh/school
+
+ssh -i ~/.ssh/school ubuntu@52.7.252.237

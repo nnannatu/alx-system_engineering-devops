@@ -2,7 +2,7 @@
 
 Host *
     PasswordAuthentication no
-    IdentifyFile ~/.ssh/school
+    IdentityFile ~/.ssh/school
     SendEnv LANG LC_*
-    HashKnownHost yes
+    HashKnownHosts yes
     User ubuntu

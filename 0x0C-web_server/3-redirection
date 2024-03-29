@@ -10,14 +10,14 @@ apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 
 # Create HTML directory and index file
-mkdir -p /etc/nginx/html
-echo 'Hello World!' > /etc/nginx/html/index.html
+mkdir -p /var/www/html
+echo 'Hello World!' > /var/www/html/index.html
 
 # Define Nginx server configuration
 SERVER_CONFIG="server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    root /etc/nginx/html;
+    root /var/www/html;
     index index.html index.htm index.nginx-debian.html;
     server_name _;
     location /redirect_me {

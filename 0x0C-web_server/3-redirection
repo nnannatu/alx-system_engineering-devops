@@ -1,28 +1,33 @@
-#!/usr/bin/env bash
-# Installs, configures, and starts the server
+#!/bin/bash
+
+# Update package lists
 apt-get update
+
+# Install Nginx
 apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-sudo mkdir -p /etc/nginx/html
-sudo chmod -R 755 /etc/nginx/html
-sudo touch /etc/nginx/html/index.html
+
+# Allow HTTP traffic
+ufw allow 'Nginx HTTP'
+
+# Create HTML directory and index file
+mkdir -p /etc/nginx/html
 echo 'Hello World!' > /etc/nginx/html/index.html
-SERVER_CONFIG=\
-"server {
+
+# Define Nginx server configuration
+SERVER_CONFIG="server {
     listen 80 default_server;
     listen [::]:80 default_server;
     root /etc/nginx/html;
     index index.html index.htm index.nginx-debian.html;
     server_name _;
     location /redirect_me {
-        rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
 }"
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+# Replace default Nginx configuration with custom configuration
+sed -i '/^server {/,$d' /etc/nginx/sites-enabled/default
+echo "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-    service nginx start
-else
-    service nginx restart
-fi
+# Restart Nginx service
+service nginx restart

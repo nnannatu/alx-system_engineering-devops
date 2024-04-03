@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# debug to find out why the serve is not listen on port 80
+# configures nginx to run on port 80
+
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart

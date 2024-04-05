@@ -9,9 +9,9 @@ new_string2="server {\n\tadd_header X-Served-By $var;"
 
 apt-get update -y
 apt-get install nginx -y
-echo "Hello World!" > /usr/share/nginx/html/index.html
-mkdir -p /var/www/html
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
-sudo sed -i -E "s/^server \{/$new_string2/" /etc/nginx/sites-available/default
+echo "Hello World!" > /usr/share/nginx/nnanna/index.html
+mkdir -p /var/www/nnanna
+echo "Ceci n'est pas une page" > /var/www/nnanna/404.html
+sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/nnanna
+sudo sed -i -E "s/^server \{/$new_string2/" /etc/nginx/sites-available/nnanna
 sudo service nginx start

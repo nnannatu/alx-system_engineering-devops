@@ -4,6 +4,6 @@ apt-get -y update
 apt-get -y install nginx
 echo "Hello World!" > /var/www/nnanna/index.html
 echo "Ceci n'est pas une page" > /var/www/nnanna/404.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Nnanna-Atu permanent;\n\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/nnanna;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/nnanna
-sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf
+sed -i '/server_name _;/a \\\trewrite ^\/redirect_me https:\/\/github.com\/Nnanna-Atu permanent;\n\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/nnanna;\n\t\tinternal;\n\t}' /etc/nginx/sites-available/nnanna
+sed -i '/include \/etc\/nginx\/sites-enabled\/\*;/a \\\tadd_header X-Served-By \"$HOSTNAME\";' /etc/nginx/nginx.conf
 service nginx start

@@ -1,9 +1,32 @@
 #!/usr/bin/env bash
 # Script that configures Nginx server with a custom header
+
+# Update and install Nginx
 apt-get -y update
 apt-get -y install nginx
+
+# Create index.html and 404.html files
 echo "Hello World!" > /var/www/nnanna/index.html
 echo "Ceci n'est pas une page" > /var/www/nnanna/404.html
-sed -i '/server_name _;/a \\\trewrite ^\/redirect_me https:\/\/github.com\/Nnanna-Atu permanent;\n\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/nnanna;\n\t\tinternal;\n\t}' /etc/nginx/sites-available/nnanna
-sed -i '/include \/etc\/nginx\/sites-enabled\/\*;/a \\\tadd_header X-Served-By \"$HOSTNAME\";' /etc/nginx/nginx.conf
-service nginx start
+
+# Configure Nginx on web-01 and web-02
+configure_nginx() {
+    local nginx_conf="/etc/nginx/sites-available/nnanna"
+    local nginx_main_conf="/etc/nginx/nginx.conf"
+    local hostname=$(hostname)
+
+    # Add custom header to Nginx server block
+    sed -i '/server_name _;/a \\\trewrite ^\/redirect_me https:\/\/github.com\/Nnanna-Atu permanent;\n\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/nnanna;\n\t\tinternal;\n\t}' "$nginx_conf"
+
+    # Add custom header to Nginx main configuration
+    sed -i '/include \/etc\/nginx\/sites-enabled\/\*;/a \\\tadd_header X-Served-By \"$hostname\";' "$nginx_main_conf"
+}
+
+# Start Nginx service
+start_nginx() {
+    service nginx start
+}
+
+# Call the functions to configure and start Nginx
+configure_nginx
+start_nginx

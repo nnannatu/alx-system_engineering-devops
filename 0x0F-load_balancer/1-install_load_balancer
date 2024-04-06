@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install and configure HAproxy on lb-01 server.
+# Installs and setup haproxy
 
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.8
@@ -8,16 +8,16 @@ apt-get install -y haproxy=2.8.\*
 
 echo "ENABLED=1" > /etc/default/haproxy
 
-# listen to web01 and web02
+# Listen to web1 and web2 servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 echo "
-    listen load_balancer
-    bind *:80
-    mode http
-    balance roundrobin
-    option httpclose
-    option forwardfor
-    server 527523-web-01 54.165.237.218:80 check
-    server 527523-web-02 35.168.7.176:80 check
+   listen load_balancer
+   bind *:80
+   mode http
+   balance roundrobin
+   option httpclose
+   option forwardfor
+   server 527523-web-01 54.165.237.218:80 check
+   server 527523-web-02 35.168.7.176:80 check
 " >> /etc/haproxy/haproxy.cfg
 
-service haproxy start
+service haproxy restart

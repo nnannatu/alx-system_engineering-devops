@@ -43,7 +43,7 @@ frontend nnanna
         acl letsencrypt-acl  path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
 
-        default_backend myserver
+        default_backend myservers
 
 backend myservers
         balance roundrobin
